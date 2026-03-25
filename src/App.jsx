@@ -8,9 +8,14 @@ import GroupCard from './groups/group-card'
 function App() {
 
   const initialState = {
-    searchText: ''
+    searchText: '',
+    pressedId: undefined
   }
-  const groups = ['best group', 'smart group', 'average group', 'other group'];
+  const groups = [
+    { id: 1, name: 'best group' },
+    { id: 2, name: 'smart group' },
+    { id: 3, name: 'average group' },
+    { id: 4, name: 'other group' }];
   const [state, setState] = useState(initialState);
 
   const onSearchChange = (text) => {
@@ -26,10 +31,14 @@ function App() {
       <input type='text'
         onChange={({ target: { value } }) => onSearchChange(value)} />
       {
-        groups.map((group) => {
-          return group.includes(state.searchText) ?
-            <GroupCard name={group} /> :
-            undefined
+        groups.map(({ id: groupId, name }) => {
+          return name.includes(state.searchText) &&
+            <GroupCard
+              key={groupId}
+              name={name}
+              isSelected={state.pressedId === groupId}
+              id={groupId}
+              onCardClick={(id) => setState({ ...state, pressedId: id })} />
         })
       }
     </>
