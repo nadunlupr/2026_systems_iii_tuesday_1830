@@ -28,6 +28,9 @@ function App() {
   return (
     <>
       <Link to='/counter'>Go to Counter</Link>
+      <br/>
+      <Link to='/promise-demo'>Go to promise demo</Link>
+      <br/>
       <input type='text'
         onChange={({ target: { value } }) => onSearchChange(value)} />
       {
