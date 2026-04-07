@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ProductList from "./product-list";
 
 export default function PromiseDemo(props) {
 
@@ -40,6 +41,7 @@ export default function PromiseDemo(props) {
         <div>
             Welcome to promises
             <button onClick={() => setCount2(count2 + 1)}>Count</button>
+            <ProductList />
         </div>
     )
 }
