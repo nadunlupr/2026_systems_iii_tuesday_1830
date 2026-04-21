@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Link } from 'react-router'
 import GroupCard from './groups/group-card'
+import Layout from './nav-bar/Layout'
+import { UserProvider } from './context-demo/UserProvider'
 
 function App() {
 
@@ -25,12 +27,21 @@ function App() {
     })
   }
 
+  const user = {
+    name: 'Marko Vranješ'
+  }
+
   return (
     <>
+      <UserProvider user={user}>
+        <Layout />
+        {/* <OtherChildren/> */}
+      </UserProvider>
+
       <Link to='/counter'>Go to Counter</Link>
-      <br/>
+      <br />
       <Link to='/promise-demo'>Go to promise demo</Link>
-      <br/>
+      <br />
       <input type='text'
         onChange={({ target: { value } }) => onSearchChange(value)} />
       {
