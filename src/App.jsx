@@ -37,7 +37,8 @@ function App() {
         <Layout />
         {/* <OtherChildren/> */}
       </UserProvider>
-
+      <Link to='/store-demo'>Go to Store Counter Demo</Link>
+      <br />
       <Link to='/counter'>Go to Counter</Link>
       <br />
       <Link to='/promise-demo'>Go to promise demo</Link>
